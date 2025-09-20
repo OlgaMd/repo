@@ -1,9 +1,18 @@
-<template>
+﻿<template>
     <BContainer class="bv-example-row">
-        <div class="flex">
-            <div class="header">Учетные записи</div>
-            <BButton variant="light" @click="onCreateRow">+</BButton>
-        </div>
+        <BRow>
+            <div class="flex my-1 px-1">
+                <div class="header">Учетные записи</div>
+                <BButton variant="outline-secondary" class="px-3" @click="onCreateRow">+</BButton>
+            </div>
+        </BRow>
+        <BRow>
+            <BCol cols="11" class="p-0">
+                <div class="flex bg-primary-light m-1 p-2">
+                    <div class="">Для указания нескольких меток для одной пары логин/пароль используйте разделитель ;</div>
+                </div>
+            </BCol>           
+        </BRow>
         <AccountRow v-for="row in sortItems" :key="row.id" :account="row" />
     </BContainer>
 </template>
@@ -29,6 +38,10 @@ function onCreateRow() {
     }
     .header {
         font-size: larger;
-        padding: 10px;
+        font-weight: bold;
+        padding: 10px 10px 10px 0;
+    }
+    .bg-primary-light {
+        background-color: #eef4fa;
     }
 </style>
